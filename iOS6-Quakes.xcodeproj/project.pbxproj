@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD41202D22D7993500542263 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41202C22D7993500542263 /* AppDelegate.swift */; };
-		BD41202F22D7993500542263 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41202E22D7993500542263 /* ViewController.swift */; };
+		BD41202F22D7993500542263 /* EarthquakesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41202E22D7993500542263 /* EarthquakesViewController.swift */; };
 		BD41203222D7993500542263 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD41203022D7993500542263 /* Main.storyboard */; };
 		BD41203422D7993700542263 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD41203322D7993700542263 /* Assets.xcassets */; };
 		BD41203722D7993700542263 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD41203522D7993700542263 /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		BD41202922D7993500542263 /* iOS6-Quakes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS6-Quakes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD41202C22D7993500542263 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BD41202E22D7993500542263 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BD41202E22D7993500542263 /* EarthquakesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakesViewController.swift; sourceTree = "<group>"; };
 		BD41203122D7993500542263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD41203322D7993700542263 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD41203622D7993700542263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				BD41202C22D7993500542263 /* AppDelegate.swift */,
-				BD41202E22D7993500542263 /* ViewController.swift */,
+				BD41202E22D7993500542263 /* EarthquakesViewController.swift */,
 				BD41203E22D799DC00542263 /* Quake.swift */,
 				BD41204022D79E8C00542263 /* QuakeFetcher.swift */,
 				BD41203022D7993500542263 /* Main.storyboard */,
@@ -141,7 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD41202F22D7993500542263 /* ViewController.swift in Sources */,
+				BD41202F22D7993500542263 /* EarthquakesViewController.swift in Sources */,
 				BD41204122D79E8C00542263 /* QuakeFetcher.swift in Sources */,
 				BD41203F22D799DC00542263 /* Quake.swift in Sources */,
 				BD41202D22D7993500542263 /* AppDelegate.swift in Sources */,
@@ -297,7 +297,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lambdaschool.iOS6-Quakes2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.weekend.quakes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -315,7 +315,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lambdaschool.iOS6-Quakes2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.weekend.quakes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

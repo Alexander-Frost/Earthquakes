@@ -7,16 +7,20 @@
 //
 
 import UIKit
+import MapKit
 
-class ViewController: UIViewController {
+class EarthquakesViewController: UIViewController {
     private lazy var quakeFetcher = QuakeFetcher()
+    
+    @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         quakeFetcher.fetchQuakes { (quakes, error) in
-            
-            print("It's alive!")
+            if let quakes = quakes {
+                print("It's alive! \(quakes.count)")
+            }
         }
         
         
