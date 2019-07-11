@@ -17,6 +17,12 @@ class EarthquakesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        mapView.delegate = self
+        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: "QuakeAnnotationView")
+        fetchQuakes()
+    }
+    
+    private func fetchQuakes() {
         quakeFetcher.fetchQuakes { (quakes, error) in
             
             if let error = error {
@@ -31,10 +37,32 @@ class EarthquakesViewController: UIViewController {
                 self.mapView.addAnnotations(quakes)
             }
         }
-        
-        
     }
 
 
 }
 
+extension EarthquakesViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        // Create an annotation view
+        
+        // Switch statement if checking more than earthquakes
+        guard let quake = annotation as? Quake else {return nil}
+        
+        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "QuakeAnnotationView", for: annotation) as! MKMarkerAnnotationView
+        
+        
+        annotationView.glyphImage = UIImage(named: "QuakeIcon")
+        annotationView.glyphTintColor = .white
+        annotationView.markerTintColor = .blue
+        
+        annotationView.canShowCallout = true
+        
+        let detailView = QuakeDetailView(frame: .zero) // self-sizing
+        detailView.quake = quake
+        annotationView.detailCalloutAccessoryView = detailView // annotation view
+        
+        return annotationView
+    }
+}
