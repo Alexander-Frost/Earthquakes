@@ -111,7 +111,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BD41202422D7993500542263 /* Build configuration list for PBXProject "iOS6-Quakes" */;
+			buildConfigurationList = BD41202422D7993500542263 /* Build configuration list for PBXProject "Earthquakes" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -298,6 +298,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
 				INFOPLIST_FILE = "iOS6-Quakes/Info.plist";
@@ -316,6 +317,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
 				INFOPLIST_FILE = "iOS6-Quakes/Info.plist";
@@ -333,7 +335,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BD41202422D7993500542263 /* Build configuration list for PBXProject "iOS6-Quakes" */ = {
+		BD41202422D7993500542263 /* Build configuration list for PBXProject "Earthquakes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD41203922D7993700542263 /* Debug */,

@@ -19,6 +19,12 @@ class EarthquakesViewController: UIViewController {
 
         mapView.delegate = self
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: "QuakeAnnotationView")
+        
+        let mapCenter = CLLocationCoordinate2D(latitude: 37.79425, longitude: -122.403528) //SF
+        let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+        let region = MKCoordinateRegion(center: mapCenter, span: span)
+        mapView.setRegion(region, animated: false)
+        
         fetchQuakes()
     }
     
@@ -54,14 +60,22 @@ extension EarthquakesViewController: MKMapViewDelegate {
         
         
         annotationView.glyphImage = UIImage(named: "QuakeIcon")
-        annotationView.glyphTintColor = .white
-        annotationView.markerTintColor = .blue
+        annotationView.glyphTintColor = .white // glyph color using Template vector image
+        annotationView.markerTintColor = .blue // background color
         
         annotationView.canShowCallout = true
         
         let detailView = QuakeDetailView(frame: .zero) // self-sizing
         detailView.quake = quake
         annotationView.detailCalloutAccessoryView = detailView // annotation view
+        
+        // Set color of marker based on severity of earthquake
+        if quake.properties.mag > 7 {
+            annotationView.markerTintColor = .red
+        } else if quake.properties.mag > 3 {
+            annotationView.markerTintColor = .orange
+        }
+        
         
         return annotationView
     }

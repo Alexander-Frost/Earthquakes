@@ -28,7 +28,7 @@ class QuakeFetcher {
         let now = Date()
         var dateComponents = DateComponents()
         dateComponents.calendar = Calendar.current
-        dateComponents.day = -1 // 7 days in the past
+        dateComponents.day = -1 // 1 days in the past
         
         guard let oneWeekAgo = Calendar.current.date(byAdding: dateComponents, to: now) else {
             print("Date math error")
