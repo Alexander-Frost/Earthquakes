@@ -28,7 +28,7 @@ class QuakeFetcher {
         let now = Date()
         var dateComponents = DateComponents()
         dateComponents.calendar = Calendar.current
-        dateComponents.day = -7 // 7 days in the past
+        dateComponents.day = -1 // 7 days in the past
         
         guard let oneWeekAgo = Calendar.current.date(byAdding: dateComponents, to: now) else {
             print("Date math error")
@@ -84,7 +84,7 @@ class QuakeFetcher {
             
             do {
                 let json = try! JSONSerialization.jsonObject(with: data, options: [])
-                print(json)
+//                print(json)
                 
                 let jsonDecoder = JSONDecoder()
                 jsonDecoder.dateDecodingStrategy = .millisecondsSince1970

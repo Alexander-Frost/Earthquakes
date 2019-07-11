@@ -18,8 +18,17 @@ class EarthquakesViewController: UIViewController {
         super.viewDidLoad()
 
         quakeFetcher.fetchQuakes { (quakes, error) in
-            if let quakes = quakes {
-                print("It's alive! \(quakes.count)")
+            
+            if let error = error {
+                print("There was an error: \(error)")
+                return
+            }
+            
+            guard let quakes = quakes else {return}
+            print("It's alive! \(quakes.count)")
+            
+            DispatchQueue.main.async {
+                self.mapView.addAnnotations(quakes)
             }
         }
         

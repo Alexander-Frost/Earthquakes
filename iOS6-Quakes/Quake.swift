@@ -9,8 +9,9 @@
 import Foundation
 import CoreLocation
 
-class Quake: Decodable {
+class Quake: NSObject, Decodable {
     let properties: Properties
+    let geometry: Geometry
     
     // mag - magnitude
     // place
