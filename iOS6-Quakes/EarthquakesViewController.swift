@@ -10,9 +10,16 @@ import UIKit
 import MapKit
 
 class EarthquakesViewController: UIViewController {
+    
+    // MARK: - Instances
+    
     private lazy var quakeFetcher = QuakeFetcher()
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var mapView: MKMapView!
+    
+    // MARK: - VC Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +34,8 @@ class EarthquakesViewController: UIViewController {
         
         fetchQuakes()
     }
+    
+    // MARK: - Operations
     
     private func fetchQuakes() {
         quakeFetcher.fetchQuakes { (quakes, error) in
@@ -44,8 +53,6 @@ class EarthquakesViewController: UIViewController {
             }
         }
     }
-
-
 }
 
 extension EarthquakesViewController: MKMapViewDelegate {
@@ -58,11 +65,9 @@ extension EarthquakesViewController: MKMapViewDelegate {
         
         let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "QuakeAnnotationView", for: annotation) as! MKMarkerAnnotationView
         
-        
         annotationView.glyphImage = UIImage(named: "QuakeIcon")
         annotationView.glyphTintColor = .white // glyph color using Template vector image
         annotationView.markerTintColor = .blue // background color
-        
         annotationView.canShowCallout = true
         
         let detailView = QuakeDetailView(frame: .zero) // self-sizing
@@ -75,8 +80,6 @@ extension EarthquakesViewController: MKMapViewDelegate {
         } else if quake.properties.mag > 3 {
             annotationView.markerTintColor = .orange
         }
-        
-        
         return annotationView
     }
 }

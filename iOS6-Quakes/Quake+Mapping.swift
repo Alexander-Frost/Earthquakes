@@ -10,15 +10,7 @@ import Foundation
 import MapKit
 
 extension Quake: MKAnnotation {
-    var coordinate: CLLocationCoordinate2D {
-        return geometry.location
-    }
-    
-    var title: String? {
-        return properties.place
-    }
-    
-    var subtitle: String? {
-        return "\(properties.time)"
-    }
+    var coordinate: CLLocationCoordinate2D {return geometry.location}
+    var title: String? {return properties.place}
+    var subtitle: String? {return "\(properties.time)"}
 }

@@ -17,9 +17,13 @@ enum QuakeError: Int, Error {
 
 
 class QuakeFetcher {
+    
+    // MARK: - Properties
+    
     let baseURL = URL(string: "https://earthquake.usgs.gov/fdsnws/event/1/query")!
     let dateFormatter = ISO8601DateFormatter()
     
+    // MARK: - Operations
     
     func fetchQuakes(completion: @escaping ([Quake]?, Error?) -> Void) {
         
@@ -40,10 +44,7 @@ class QuakeFetcher {
         fetchQuakes(from: interval, completion: completion)
     }
     
-    func fetchQuakes(from dateInterval: DateInterval,
-                     completion: @escaping ([Quake]?, Error?) -> Void) {
-        
-        
+    func fetchQuakes(from dateInterval: DateInterval, completion: @escaping ([Quake]?, Error?) -> Void) {
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         
         // startTime, endTime, format
@@ -55,7 +56,6 @@ class QuakeFetcher {
             URLQueryItem(name: "endtime", value: endTime),
             URLQueryItem(name: "format", value: "geojson")
         ]
-
         urlComponents?.queryItems = queryItems
         
         guard let url = urlComponents?.url else {
@@ -64,24 +64,18 @@ class QuakeFetcher {
             return
         }
         
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "GET"
-        
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
                 print("Error fetching quakes: \(error)")
-                completion(nil, error)
-                return
+                return completion(nil, error)
             }
             
             guard let data = data else {
                 print("No data")
-                completion(nil, QuakeError.noDataReturned)
-                return
+                return completion(nil, QuakeError.noDataReturned)
             }
             
             // Parsing / decoding
-            
             do {
                 let json = try! JSONSerialization.jsonObject(with: data, options: [])
 //                print(json)
