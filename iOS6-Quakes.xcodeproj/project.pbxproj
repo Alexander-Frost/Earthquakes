@@ -63,11 +63,11 @@
 			isa = PBXGroup;
 			children = (
 				BD41202C22D7993500542263 /* AppDelegate.swift */,
-				BD41202E22D7993500542263 /* EarthquakesViewController.swift */,
 				BD41203E22D799DC00542263 /* Quake.swift */,
-				FAEC5A1F22D7AF330046B983 /* Quake+Mapping.swift */,
-				FAEC5A2122D7B46E0046B983 /* QuakeDetailView.swift */,
 				BD41204022D79E8C00542263 /* QuakeFetcher.swift */,
+				FAEC5A1F22D7AF330046B983 /* Quake+Mapping.swift */,
+				BD41202E22D7993500542263 /* EarthquakesViewController.swift */,
+				FAEC5A2122D7B46E0046B983 /* QuakeDetailView.swift */,
 				BD41203022D7993500542263 /* Main.storyboard */,
 				BD41203322D7993700542263 /* Assets.xcassets */,
 				BD41203522D7993700542263 /* LaunchScreen.storyboard */,
@@ -111,7 +111,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BD41202422D7993500542263 /* Build configuration list for PBXProject "Earthquakes" */;
+			buildConfigurationList = BD41202422D7993500542263 /* Build configuration list for PBXProject "iOS6-Quakes" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -298,7 +298,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
 				INFOPLIST_FILE = "iOS6-Quakes/Info.plist";
@@ -317,7 +316,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
 				INFOPLIST_FILE = "iOS6-Quakes/Info.plist";
@@ -335,7 +333,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BD41202422D7993500542263 /* Build configuration list for PBXProject "Earthquakes" */ = {
+		BD41202422D7993500542263 /* Build configuration list for PBXProject "iOS6-Quakes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD41203922D7993700542263 /* Debug */,
