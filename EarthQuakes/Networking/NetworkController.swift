@@ -22,7 +22,7 @@ final class NetworkController {
     
     // MARK: - Operations
 
-    public func fetchQuakes(completion: @escaping (Result<[Quake], QuakeError>) -> Void) {
+    public func fetchQuakes(daysBackToShow: Int = Config.ShowDataOnPastXDays, completion: @escaping (Result<[Quake], QuakeError>) -> Void) {
         let dateString = dateFormatter.string(from: Date())
         if let cachedEarthquakes = cache[dateString] {
             completion(.success(cachedEarthquakes))
@@ -31,12 +31,12 @@ final class NetworkController {
         /// Throw on a background thread
         downloadQueue.async {
             self.semaphore.wait()
-            self.fetchQuakesData(completion: completion)
+            self.fetchQuakesData(daysBackToShow: daysBackToShow, completion: completion)
         }
     }
     
-    private func fetchQuakesData(completion: @escaping (Result<[Quake], QuakeError>) -> Void) {
-        guard let dateInterval = generateInterval() else { return completion(.failure(.dateMathError)) }
+    private func fetchQuakesData(daysBackToShow: Int, completion: @escaping (Result<[Quake], QuakeError>) -> Void) {
+        guard let dateInterval = generateInterval(daysBackToShow: daysBackToShow) else { return completion(.failure(.dateMathError)) }
         var urlComponents = URLComponents(url: Config.BaseUrl, resolvingAgainstBaseURL: true)
         let startTime = dateFormatter.string(from: dateInterval.start)
         let endTime = dateFormatter.string(from: dateInterval.end)
@@ -82,11 +82,11 @@ final class NetworkController {
     // MARK: - Date Interval
     
     /// 30 Days Back
-    private func generateInterval() -> DateInterval? {
+    private func generateInterval(daysBackToShow: Int) -> DateInterval? {
         let now = Date()
         var dateComponents = DateComponents()
         dateComponents.calendar = Calendar.current
-        dateComponents.day = -Config.ShowDataOnPastXDays
+        dateComponents.day = -daysBackToShow
         
         guard let start = Calendar.current.date(byAdding: dateComponents, to: now) else { return nil }
         return DateInterval(start: start, end: now)
