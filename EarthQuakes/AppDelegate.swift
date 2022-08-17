@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  EarthQuakes
-//
-//  Created by Alex Frost on 8/13/22.
-//
-
 import UIKit
 
 @main
